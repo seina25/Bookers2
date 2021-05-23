@@ -1,7 +1,7 @@
 
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'books/usersinfo', book:@book, user:@user %>
+    <%= render 'books/usersinfo', user: current_user, book: @new_book %>
     <div class="col-md-8 offset-1">
       <h2>Books</h2>
       <table class="table table-hovor table-inverse">
@@ -18,7 +18,7 @@
           <tr>
             <td>
              <%=link_to user_path(book.user.id) do %>
-               <%= attachment_image_tag(@user, :profile_image, :fill, 100, format: 'jpeg',class:"user", fallback: "no_image.jpg") %></br>
+               <%= attachment_image_tag(book.user, :profile_image, size: "100x100", format: 'jpeg',class:"user", fallback: "no_image.jpg") %></br>
                <%= book.user.name %>
              <% end %>
             </td>
