@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
     @new_book = Book.new
   end
 
   def show
     @new_book = Book.new
     @user = User.find(params[:id])
-    @books = @user.books
+    @books = @user.books.page(params[:page])
   end
 
   def edit
