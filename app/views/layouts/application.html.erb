@@ -33,7 +33,7 @@
               </li>
              <% else %>
               <li>
-                <%= link_to "  Home", root_path, class: 'fas fa-book-open nav-link text-light' %>
+                <%= link_to "  Home", root_path, class: 'fas fa-home nav-link text-light' %>
               </li>
               <li>
                 <%= link_to "  About", home_about_path, class: 'fas fa-link nav-link text-light' %>
@@ -52,6 +52,9 @@
     </header>
 
     <main>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: '#{key}' %>
+      <% end %>
       <%= yield %>
     </main>
 
